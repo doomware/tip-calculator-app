@@ -1,0 +1,295 @@
+$white: hsl(0, 0%, 100%);
+$dark-cyan-bg: hsl(183, 100%, 15%);
+$dark-cyan-btn: hsl(183, 100%, 15%);
+$cyan-btn: hsl(172, 67%, 45%);
+$cyan-btn-active: hsl(172, 67%, 35%);
+$label-color: hsl(186, 14%, 43%);
+$input-bg: hsl(189, 41%, 97%);
+$input-placeholder: hsl(187, 23%, 70%);
+
+%input {
+  background-color: $input-bg;
+  border: 2px solid $input-bg;
+  color: $dark-cyan-btn;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: right;
+}
+
+%input-active {
+  border: $cyan-btn solid 1px;
+}
+
+.card {
+  border-radius: 25px 25px 0 0;
+  background-color: $white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 30px 24px;
+
+  h4 {
+    color: $label-color;
+    margin-bottom: 5px;
+  }
+
+  .calculator-in {
+    width: 100%;
+
+    .bill {
+      h4 {
+        margin-top: 0;
+      }
+
+      div {
+        width: 100%;
+
+        span {
+          position: absolute;
+        }
+
+        .icon-dollar {
+          background-image: url("../image/icon-dollar.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 40px;
+          height: 46px;
+        }
+
+        input {
+          @extend %input;
+          box-sizing: border-box;
+          width: 100%;
+          padding: 4px 15px;
+          border-radius: 8px;
+          // border: 1px solid hsl(172, 67%, 45%);
+
+          &::placeholder{
+            color: $input-placeholder;
+          }
+
+          &:focus{
+            border: 2px solid hsl(172, 67%, 45%);
+          }
+        }
+      }
+    }
+
+    .label-tip {
+      margin-top: 35px;
+      margin-bottom: 15px;
+    }
+
+    .tip {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      gap: 16px;
+
+      div {
+        flex: 1;
+
+        input[type="radio"] {
+          // comented in debug
+          display: none;
+
+          &:checked + label {
+            background-color: $cyan-btn;
+            color: $dark-cyan-btn;
+          }
+        }
+
+        label {
+          display: block;
+          background-color: $dark-cyan-btn;
+          border: none;
+          border-radius: 5px;
+          text-align: center;
+          padding: 5px 40px;
+          color: $white;
+          font-size: 25px;
+          font-weight: 700;
+          cursor: pointer;
+        }
+
+        .input-percent {
+          @extend %input;
+          box-sizing: border-box;
+          width: 100%;
+          height: 100%;
+          padding-right: 15px;
+          border-radius: 5px;
+
+          &::placeholder {
+            color: $input-placeholder;
+          }
+
+          &:focus {
+            border: 2px solid hsl(172, 67%, 45%);
+          }
+        }
+      }
+    }
+
+    .people {
+      label {
+        h4 {
+          margin-top: 35px;
+          // margin-bottom: 15px;
+        }
+      }
+
+      .people-label {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+
+        .error {
+          align-self: flex-end;
+          margin-bottom: 5px;
+          color: #f0613d;
+          font-weight: 700;
+        }
+      }
+
+      div {
+        .icon-person {
+          position: absolute;
+          background-image: url("../image/icon-person.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 40px;
+          height: 46px;
+        }
+
+        input[type="number"] {
+          @extend %input;
+          width: 100%;
+          box-sizing: border-box;
+          padding: 4px 15px;
+          border-radius: 8px;
+
+          &::placeholder{
+            color: $input-placeholder;
+          }
+
+          &:focus{
+            border: 2px solid hsl(172, 67%, 45%);
+          }
+        }
+      }
+    }
+  }
+
+  .calculator-out {
+    width: 100%;
+    margin-top: 35px;
+    background-color: $dark-cyan-bg;
+    border-radius: 15px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    h5,
+    p,
+    h2 {
+      margin: unset;
+    }
+
+    h5 {
+      color: $white;
+      font-size: 16px;
+    }
+
+    p {
+      color: hsl(185, 41%, 84%);
+      font-size: 14px;
+      font-weight: 700;
+      opacity: 0.7;
+    }
+
+    h2 {
+      font-size: 32px;
+      color: $cyan-btn;
+    }
+
+    .tipAmount {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .separator {
+      display: none;
+    }
+
+    .reset-btn {
+      width: 100%;
+      background-color: $cyan-btn;
+      color: $dark-cyan-btn;
+      font-weight: 700;
+      font-size: 22px;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 0;
+      margin-top: 10px;
+
+      &:active{
+        background-color: #9fe8e1;
+      }
+    }
+
+    // .reset-btn:active {
+    //   background-color: #9fe8e1;
+    // }
+  }
+}
+
+@media (min-width: 912px) {
+  .card {
+    // full width 922px
+    // width 858px
+    padding: 32px;
+    box-sizing: border-box;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+    border-radius: 25px;
+    width: 922px;
+
+    .calculator-in {
+      padding: 20px 10px;
+      max-width: 413px;
+      max-height: 417px;
+    }
+
+    .calculator-out {
+      // full width 413px
+      // full height 417px
+      // padding 40px 30px
+      // width
+      margin-top: unset;
+      padding: 40px;
+      box-sizing: border-box;
+      width: 413px;
+      height: 417px;
+
+      .separator {
+        display: initial;
+        flex-grow: 1;
+      }
+
+      h2 {
+        font-size: 40px;
+      }
+    }
+  }
+}

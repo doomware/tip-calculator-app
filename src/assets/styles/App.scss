@@ -1,0 +1,19 @@
+.img-logo {
+  display: block;
+  margin: 45px auto;
+}
+
+@media (min-width: 912px) {
+  .App {
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .img-logo {
+      display: block;
+      margin: 0 auto 80px auto;
+    }
+  }
+}
